@@ -1,5 +1,5 @@
 :root {
-    /* Ganti warna primary menjadi Biru Es/Sehat */
+    /* Warna Utama: Biru Cyan Segar */
     --primary : #00C2FF; 
     --bg : #010101;
 }
@@ -30,7 +30,7 @@ body{
     align-items: center;
     padding: 1.4rem 7%;
     background-color: rgba(1, 1, 1, 0.8); 
-    border-bottom: 1px solid #1a3c48; /* Ubah border agar slightly blue */
+    border-bottom: 1px solid #1a3c48;
     position: fixed;
     top: 0;
     left: 0;
@@ -119,17 +119,19 @@ body{
     color: var(--bg);
 }
 
-/* Shopping Cart */
+/* Shopping Cart Sidebar */
 .shopping-cart{
     position: absolute;
     top: 100%;
     right: -100%;
     height: 100vh;
     width: 35rem;
-    padding:0 1.5rem;
+    padding: 0 1.5rem;
     color: var(--bg);
     background-color: #fff;
     transition: 0.3s;
+    overflow-y: auto; /* Agar bisa discroll jika item banyak */
+    padding-bottom: 5rem;
 }
 
 .shopping-cart.active{
@@ -164,6 +166,7 @@ body{
     right: 1rem;
     position: absolute;
     cursor: pointer;
+    color: #333;
 }
 
 .shopping-cart .remove-item:hover{
@@ -175,11 +178,10 @@ body{
     min-height: 100vh;
     display: flex;
     align-items: center;
-    /* Pastikan Anda mengganti gambar ini dengan gambar es krim yang menarik */
     background-image: url('img/header-bg.jpg'); 
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover; /* Tambahkan ini agar responsif */
+    background-size: cover;
     position: relative;
 }
 
@@ -223,7 +225,7 @@ body{
     display: inline-block;
     padding: 1rem 3rem;
     font-size: 1.4rem;
-    color: #fff; /* Text tombol tetap putih */
+    color: #fff;
     background-color: var(--primary );
     border-radius: 0.5rem;
     box-shadow: 1px 1px 3px rgba(1,1,3,0.5);
@@ -306,20 +308,39 @@ body{
 .menu-card {
     text-align: center;
     padding-bottom: 2rem;
-    margin: 0 1.5rem; /* Tambahkan spacing antar card */
-    
+    margin: 0 1.5rem; 
 }
 
 .menu .row .menu-card img{
     border-radius: 50%;
-    width: 10%;
-    border: 1px solid var(--primary); /* Tambah border tipis */
-    /* biar posising gambar di tengah */
-    
+    width: 15rem; /* Set ukuran fix agar rapi */
+    height: 15rem;
+    object-fit: cover;
+    border: 2px solid var(--primary);
 }
 
 .menu .row .menu-card .menu-card-title{
     margin: 1rem auto 0.5rem;
+}
+
+/* Custom Tombol Add to Cart */
+.add-to-cart {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #0099cc; 
+    transform: scale(1.05);
 }
 
 /* Product Section Start */
@@ -334,7 +355,7 @@ body{
     text-align: center;
     border: 1px solid #666;
     padding: 2rem;
-    border-radius: 10px; /* Tambahkan sedikit radius */
+    border-radius: 10px;
 }
 
 .products .product-icon{
@@ -366,7 +387,7 @@ body{
 
 .products .product-image img{
     height: 25rem;
-    object-fit: cover; /* Agar gambar rapi */
+    object-fit: cover;
 }
 
 .products .product-content{
@@ -395,7 +416,7 @@ body{
     color: #aaa;
 }
 
-/* Contact Section start*/
+/* Contact Section */
 .contact .row{
     display: flex;
     margin-top: 2rem;
@@ -441,7 +462,7 @@ body{
     cursor: pointer;
 }
 
-/* Footer Section Start */
+/* Footer Section */
 footer{
     background-color: var(--primary);
     text-align: center;
@@ -489,7 +510,7 @@ footer .credit a{
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%; /* Pastikan full height */
+    height: 100%; 
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.6);
 }
@@ -498,11 +519,12 @@ footer .credit a{
     position: relative;
     background-color: #fefefe;
     color: var(--bg);
-    margin: 10% auto; /* Ubah margin agar lebih centered */
+    margin: 5% auto; 
     padding: 1.2rem;
     border: 1px solid #666;
     width: 80%;
     animation: animateModal 0.5s;
+    border-radius: 8px;
 }
 
 @keyframes animateModal {
@@ -519,6 +541,9 @@ footer .credit a{
 .modal-container .close-icon{
     position: absolute;
     right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    color: #333;
 }
 
 .modal-container .close-icon:hover {
@@ -531,9 +556,10 @@ footer .credit a{
 }
 
 .modal-content img{
-    height: 25rem;
+    height: 20rem;
     margin-right: 2rem;
     margin-bottom: 2rem;
+    object-fit: cover;
 }
 
 .modal-content p {
@@ -542,30 +568,37 @@ footer .credit a{
     margin-top: 1.2rem;
 }
 
-.modal-content a{
+/* Styling Struk */
+.receipt-header {
+    text-align: center;
+    border-bottom: 2px dashed #333;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+.receipt-body .receipt-item {
     display: flex;
-    gap: 1rem;
-    width: 12rem;
-    background-color: var(--primary);
-    color: #fff;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+.receipt-footer {
+    border-top: 2px dashed #333;
+    padding-top: 1rem;
     margin-top: 1rem;
-    padding: 1rem 1.6rem;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
-/* Media Queries tetap sama */
+/* MEDIA QUERIES */
 @media (max-width : 1366px) {
-    html{
-        font-size: 75%;
-    }
+    html{ font-size: 75%; }
 }
 
 @media (max-width : 768px) {
-    html{
-        font-size: 62.5%;
-    }
-    #hamburger-menu {
-        display: inline-block;
-    }
+    html{ font-size: 62.5%; }
+    #hamburger-menu { display: inline-block; }
+    
     .navbar .navbar-nav{
         position: absolute;
         top: 100%;
@@ -575,9 +608,8 @@ footer .credit a{
         height: 100vh;
         transition: 0.3s;
     }
-    .navbar .navbar-nav.active{
-        right: 0;
-    }
+    .navbar .navbar-nav.active{ right: 0; }
+    
     .navbar .navbar-nav a{
         color: var(--bg);
         display: block;
@@ -585,56 +617,42 @@ footer .credit a{
         padding: 0.5rem;
         font-size: 2rem;
     }
-    .navbar .navbar-nav a::after{
-        transform-origin: 0 0;
-    }
-    .navbar .navbar-nav a:hover::after{
-        transform: scaleX(0.2);
-    }
-    .navbar .search-form{
-        width: 90%;
-        right: 2rem;
-    }
-    .about .row {
-        flex-wrap: wrap;
-    }
-    .about .row .about-img img {
-        height: 24rem;
-        object-fit: cover;
-        object-position: center;
-    }
-    .about .row .content{
-        padding: 0;
-    }
-    .about .row .content h3 {
-        margin-top: 1rem;
-        font-size: 2rem;
-    }
-    .about .row .content p {
-        font-size: 1.6rem;
-    }
-    .menu p{
-        font-size: 1.5rem;
-    }
-    .menu ,.row .menu-card{
-        font-size:  1.5rem;
-    }
-    .contact .row{
-        flex-wrap: wrap;
-    }
-    .contact .row .map{
-        height: 30rem;
-    }
-    .contact .row .form{
-       height:  auto; /* Ubah dari 0 ke auto jika content overflow */
-    }
-    .modal-content{
-        flex-wrap: wrap;
-    }
+    .navbar .navbar-nav a::after{ transform-origin: 0 0; }
+    .navbar .navbar-nav a:hover::after{ transform: scaleX(0.2); }
+    
+    .navbar .search-form{ width: 90%; right: 2rem; }
+    
+    .about .row { flex-wrap: wrap; }
+    .about .row .about-img img { height: 24rem; object-fit: cover; object-position: center; }
+    .about .row .content{ padding: 0; }
+    .about .row .content h3 { margin-top: 1rem; font-size: 2rem; }
+    .contact .row{ flex-wrap: wrap; }
+    .contact .row .map{ height: 30rem; }
+    .modal-content{ flex-wrap: wrap; }
 }
 
 @media (max-width : 450px) {
-    html{
-        font-size: 55%;
+    html{ font-size: 55%; }
+}
+
+/* ATURAN CETAK (PRINT) */
+@media print {
+    /* Sembunyikan semua elemen kecuali area struk */
+    body * { visibility: hidden; }
+    
+    /* Tampilkan hanya area struk */
+    #receipt-print-area, #receipt-print-area * { visibility: visible; }
+
+    /* Posisikan struk di pojok kiri atas kertas */
+    #receipt-print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        color: black;
     }
+
+    /* Hilangkan tombol cetak dan close saat diprint */
+    #print-btn, .close-receipt { display: none !important; }
+    .modal-container { border: none; box-shadow: none; margin: 0; width: 100%; }
 }

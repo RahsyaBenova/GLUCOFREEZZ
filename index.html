@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,81 +20,94 @@
  
         <div class="navbar-nav">
             <a href="#home">Home</a>
-            <a href="#about">Tentang Kami</a>
+            <a href="#about">About Us</a>
             <a href="#menu">Menu</a>
-            <a href="#products">Unggulan</a>
-            <a href="#contact">Kontak</a> 
+            <a href="#products">Featured</a>
+            <a href="#contact">Contact</a> 
         </div>
 
         <div class="navbar-extra">
             <a href="#" id="search-button"><i data-feather="search"></i></a>
-            <a href="#" id="shopping-cart-button"><i data-feather="shopping-cart"></i></a>
+            <a href="#" id="shopping-cart-button">
+                <i data-feather="shopping-cart"></i>
+            </a>
             <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
         </div>
         
         <div class="search-form">
-            <input type="search" id="search-box" placeholder="Cari es krim...">
+            <input type="search" id="search-box" placeholder="Search for ice cream...">
             <label for="search-box"><i data-feather="search"></i></label>
         </div>
         <div class="shopping-cart">
-            <div class="cart-item">
-                <img src="img/menu/1.jpg" alt="product 1">
-                <div class="item-detail">
-                    <h3>Moringa Mint Scoop</h3>
-                    <div class="item-price">IDR 25K</div>
-                </div>
-                 <i data-feather="trash-2" class="remove-item"></i>
+            <div class="cart-items-container">
+                <p style="text-align:center; margin-top:2rem; color: #333;">Your cart is empty.</p>
+            </div>
+
+            <div class="cart-total" style="display:none; padding: 1rem; border-top: 1px solid #666; margin-top: 1rem;">
+                <h4 style="font-size: 1.4rem; color: var(--bg);">Total: <span id="total-price" style="color: var(--primary);">IDR 0</span></h4>
+                <button id="checkout-button" class="btn" style="width:100%; margin-top:1rem; text-align:center;">Checkout</button>
             </div>
         </div>
         </nav>
     <section class="hero" id="home">
         <main class="content">
-            <h1>Nikmati Manisnya <span>Hidup Sehat</span></h1>
-            <p>Guilt-free scoop, Diabetic friendly. Es krim rendah kalori dengan gula stevia dan ekstrak daun binahong.</p>
-            <a href="#products" class="cta">Cobain Sekarang</a> 
+            <h1>Enjoy the Sweetness of a <span>Healthy Life</span></h1>
+            <p>Guilt-free scoop, Diabetic friendly. Low-calorie ice cream with stevia and binahong leaf extract.</p>
+            <a href="#products" class="cta">Try It Now</a> 
         </main>
     </section>
     <section id="about" class="about">
-        <h2><span>Tentang</span> GlucoFreezz</h2>
+        <h2><span>About</span> GlucoFreezz</h2>
         <div class="row">
             <div class="about-img">
-                <img src="img/tentang-kami.jpg" alt="Tentang GlucoFreezz">
+                <img src="img/tentang-kami.jpg" alt="About GlucoFreezz">
             </div>
             <div class="content">
-                <h3>Kenapa memilih GlucoFreezz?</h3>
-                <p>Kami menyajikan solusi bagi "Health Warriors" dan penderita diabetes yang ingin menikmati es krim tanpa rasa bersalah.</p>
-                <p>Menggunakan <strong>Gula Stevia</strong> sebagai pemanis alami rendah kalori, serta diperkaya dengan daun insulin dan daun kelor (Moringa) untuk membantu mengontrol gula darah.</p>
+                <h3>Why choose GlucoFreezz?</h3>
+                <p>We provide a delicious solution for "Health Warriors" and diabetics who want to enjoy ice cream without the guilt.</p>
+                <p>We use <strong>Stevia Sugar</strong> as a natural low-calorie sweetener, enriched with insulin leaves and Moringa leaves to help control blood sugar levels.</p>
             </div>
         </div>
     </section>
     <section id="menu" class="menu">
-        <h2><span>Varian</span> Rasa</h2>
-        <p>Berbagai pilihan rasa alami buah asli yang aman untuk diet dan intoleransi laktosa.</p>
+        <h2><span>Flavor</span> Variants</h2>
+        <p>Various natural fruit flavors safe for diets and lactose intolerance.</p>
         <div class="row">
             <div class="menu-card">
                 <img src="img/menu/1.jpg" class="menu-card-img" alt="Moringa">
                 <h3 class="menu-card-title">- Moringa Delight -</h3>
                 <p class="menu-card-price">IDR 25K</p>
+                <a href="#" class="add-to-cart" data-name="Moringa Delight" data-price="25000" data-img="img/menu/1.jpg">
+                    <i data-feather="shopping-cart"></i> Add
+                </a>
             </div>
             <div class="menu-card">
                 <img src="img/menu/2.png" class="menu-card-img" alt="Binahong Berry">
                 <h3 class="menu-card-title">- Binahong Berry -</h3>
                 <p class="menu-card-price">IDR 28K</p>
+                <a href="#" class="add-to-cart" data-name="Binahong Berry" data-price="28000" data-img="img/menu/2.png">
+                    <i data-feather="shopping-cart"></i> Add
+                </a>
             </div>
             <div class="menu-card">
                 <img src="img/menu/2.png" class="menu-card-img" alt="Stevia Vanilla">
                 <h3 class="menu-card-title">- Stevia Vanilla -</h3>
                 <p class="menu-card-price">IDR 25K</p>
+                <a href="#" class="add-to-cart" data-name="Stevia Vanilla" data-price="25000" data-img="img/menu/2.png">
+                    <i data-feather="shopping-cart"></i> Add
+                </a>
             </div>
         </div>
     </section>
     <section class="products" id="products">
-        <h2><span>Produk</span> Unggulan</h2>  
-        <p>Diformulasikan khusus untuk menjaga gula darah tetap stabil namun tetap lezat.</p>
+        <h2><span>Featured</span> Products</h2>  
+        <p>Specially formulated to keep blood sugar stable while remaining delicious.</p>
         <div class="row">
             <div class="product-card">
                 <div class="product-icon">
-                    <a href="#"><i data-feather="shopping-cart"></i></a>
+                    <a href="#" class="add-to-cart" data-name="Family Pack (Low Cal)" data-price="85000" data-img="img/tentang-kami.jpg">
+                        <i data-feather="shopping-cart"></i>
+                    </a>
                     <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
                 </div>
                 <div class="product-image">
@@ -112,17 +125,17 @@
                     <div class="product-price">IDR 85K <span>IDR 100K</span></div>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
     <section id="contact" class="contact">
-        <h2><span>Kontak</span> Kami</h2>
-        <p>Hubungi kami untuk pemesanan katering atau kerjasama franchise.</p>
+        <h2><span>Contact</span> Us</h2>
+        <p>Reach out to us for catering orders or franchise partnerships.</p>
         <div class="row">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126907.086603423!2d106.7885429!3d-6.2842049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d8546ad633d%3A0x79e8de8965402078!2sPresident%20University!5e0!3m2!1sen!2sid!4v1675760000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d106.8!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDgnMDAuMCJF!5e0!3m2!1sen!2sid!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
             <form action="">
                 <div class="input-group">
                     <i data-feather="user"></i>
-                    <input type="text" placeholder="Nama">
+                    <input type="text" placeholder="Name">
                 </div>
                 <div class="input-group">
                     <i data-feather="mail"></i>
@@ -130,9 +143,9 @@
                 </div>
                 <div class="input-group">
                     <i data-feather="phone"></i>
-                    <input type="text" placeholder="No Hp">
+                    <input type="text" placeholder="Phone Number">
                 </div>
-                <button type="submit" class="btn">Kirim Pesan</button>
+                <button type="button" class="btn">Send Message</button>
             </form>
         </div>
     </section>
@@ -144,9 +157,9 @@
         </div>
         <div class="links">
             <a href="#home">Home</a>
-            <a href="#about">Tentang Kami</a>
+            <a href="#about">About Us</a>
             <a href="#menu">Menu</a>
-            <a href="#contact">Kontak</a>
+            <a href="#contact">Contact</a>
         </div>
         <div class="credit">Created by <a href="">GlucoFreezz Team</a>. | © 2025. </div>
     </footer>
@@ -157,7 +170,7 @@
                 <img src="img/tentang-kami.jpg" alt="Product 1">
                 <div class="product-content">
                     <h3>Moringa Gelato</h3>
-                    <p>Es krim berbahan dasar daun kelor yang kaya antioksidan, dipadukan dengan stevia. Cocok untuk penderita diabetes.</p>
+                    <p>Moringa-based ice cream rich in antioxidants, combined with stevia. Suitable for diabetics.</p>
                     <div class="product-stars">
                         <i data-feather="star" class="star-full"></i>
                         <i data-feather="star" class="star-full"></i>
@@ -166,9 +179,20 @@
                         <i data-feather="star" ></i>
                     </div>
                     <div class="product-price">IDR 25K <span>IDR 35K</span></div> 
-                    <a href="#"><i data-feather="shopping-cart"></i><span>add to cart</span></a>
+                    <a href="#" class="add-to-cart" data-name="Moringa Gelato" data-price="25000" data-img="img/tentang-kami.jpg">
+                        <i data-feather="shopping-cart"></i> <span>Add to Cart</span>
+                    </a>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="modal" id="receipt-modal">
+        <div class="modal-container" style="max-width: 400px; background: white; color: black;">
+            <a href="#" class="close-icon close-receipt"><i data-feather="x-circle" style="color:black;"></i></a>
+            <div class="receipt-content" id="receipt-print-area" style="padding: 1rem;">
+                </div>
+            <button id="print-btn" class="btn" style="width:100%; margin-top:1rem;">Print Receipt</button>
         </div>
     </div>
     
