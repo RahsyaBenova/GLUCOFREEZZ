@@ -21,10 +21,18 @@ document.querySelector('#shopping-cart-button').onclick = (e) => {
     shoppingCart.classList.toggle('active');
 };
 
+// Close Cart Button
+document.querySelector('#close-cart').onclick = (e) => {
+    e.preventDefault();
+    shoppingCart.classList.remove('active');
+}
+
+
 // Click outside element to close sidebar
 const hm = document.querySelector('#hamburger-menu');
 const sb = document.querySelector('#search-button');
 const sc = document.querySelector('#shopping-cart-button');
+const cartContainer = document.querySelector('.shopping-cart');
 
 document.addEventListener('click', function(e) {
     if (!hm.contains(e.target) && !navbarNav.contains(e.target)) {
@@ -33,7 +41,8 @@ document.addEventListener('click', function(e) {
     if (!sb.contains(e.target) && !searchForm.contains(e.target)) {
         searchForm.classList.remove('active');
     }
-    if (!sc.contains(e.target) && !shoppingCart.contains(e.target)) {
+    // Modified to ensure clicking INSIDE the cart doesn't close it
+    if (!sc.contains(e.target) && !cartContainer.contains(e.target)) {
         shoppingCart.classList.remove('active');
     }
 });
@@ -86,15 +95,15 @@ function addToCart(name, price, img) {
 
 // 4. Render Cart View
 function renderCart() {
-    const cartContainer = document.querySelector('.cart-items-container');
+    const cartItemsContainer = document.querySelector('.cart-items-container');
     const totalElement = document.querySelector('#total-price');
     const cartTotalDiv = document.querySelector('.cart-total');
 
-    cartContainer.innerHTML = '';
+    cartItemsContainer.innerHTML = '';
     let totalPrice = 0;
 
     if (cart.length === 0) {
-        cartContainer.innerHTML = '<p style="text-align:center; margin-top:2rem; color: #333;">Your cart is empty.</p>';
+        cartItemsContainer.innerHTML = '<p style="text-align:center; margin-top:2rem; opacity: 0.7;">Your cart is empty.</p>';
         cartTotalDiv.style.display = 'none';
         return;
     }
@@ -114,7 +123,7 @@ function renderCart() {
             </div>
             <i data-feather="trash-2" class="remove-item" onclick="removeItem(${index})"></i>
         `;
-        cartContainer.appendChild(cartItem);
+        cartItemsContainer.appendChild(cartItem);
     });
 
     totalElement.innerText = rupiah(totalPrice);
@@ -157,7 +166,6 @@ closeReceiptBtn.onclick = (e) => {
 
 function generateReceipt() {
     let total = 0;
-    // Using English locale for date
     const date = new Date().toLocaleString('en-US');
     const randomOrderNum = Math.floor(Math.random() * 100000);
 
@@ -175,7 +183,7 @@ function generateReceipt() {
 
     receiptContent.innerHTML = `
         <div class="receipt-header">
-            <h2 style="margin-bottom:0.5rem; color:black;">GlucoFreezz</h2>
+            <h2>GlucoFreezz</h2>
             <p>Guilt-free Scoop</p>
             <p style="font-size:0.8rem;">123 Healthy Street, City Center</p>
             <p style="font-size:0.8rem;">${date}</p>
@@ -187,7 +195,7 @@ function generateReceipt() {
         <div class="receipt-footer">
             <span>Total: ${rupiah(total)}</span>
         </div>
-        <p style="text-align:center; margin-top:1rem; font-size:0.8rem;">Thank You & Stay Healthy!</p>
+        <p style="text-align:center; margin-top:2rem; font-size:0.8rem; font-family:'Courier New'">Thank You & Stay Healthy!</p>
     `;
 }
 

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="img/logo-gluco.png" type="image/x-icon">
+    
     <script src="https://unpkg.com/feather-icons"></script>
 
     <link rel="stylesheet" href="style.css">
@@ -39,12 +39,16 @@
             <label for="search-box"><i data-feather="search"></i></label>
         </div>
         <div class="shopping-cart">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <i data-feather="x" id="close-cart"></i>
+            </div>
             <div class="cart-items-container">
-                <p style="text-align:center; margin-top:2rem; color: #333;">Your cart is empty.</p>
+                <p style="text-align:center; margin-top:2rem; opacity: 0.7;">Your cart is empty.</p>
             </div>
 
-            <div class="cart-total" style="display:none; padding: 1rem; border-top: 1px solid #666; margin-top: 1rem;">
-                <h4 style="font-size: 1.4rem; color: var(--bg);">Total: <span id="total-price" style="color: var(--primary);">IDR 0</span></h4>
+            <div class="cart-total" style="display:none;">
+                <h4 style="font-size: 1.4rem;">Total: <span id="total-price">IDR 0</span></h4>
                 <button id="checkout-button" class="btn" style="width:100%; margin-top:1rem; text-align:center;">Checkout</button>
             </div>
         </div>
@@ -81,7 +85,7 @@
                     <i data-feather="shopping-cart"></i> Add
                 </a>
             </div>
-            <div class="menu-card">
+            <div class="menu-card binahong-card">
                 <img src="img/menu/2.png" class="menu-card-img" alt="Binahong Berry">
                 <h3 class="menu-card-title">- Binahong Berry -</h3>
                 <p class="menu-card-price">IDR 28K</p>
@@ -89,7 +93,7 @@
                     <i data-feather="shopping-cart"></i> Add
                 </a>
             </div>
-            <div class="menu-card">
+            <div class="menu-card stevia-card">
                 <img src="img/menu/2.png" class="menu-card-img" alt="Stevia Vanilla">
                 <h3 class="menu-card-title">- Stevia Vanilla -</h3>
                 <p class="menu-card-price">IDR 25K</p>
@@ -105,9 +109,6 @@
         <div class="row">
             <div class="product-card">
                 <div class="product-icon">
-                    <a href="#" class="add-to-cart" data-name="Family Pack (Low Cal)" data-price="85000" data-img="img/tentang-kami.jpg">
-                        <i data-feather="shopping-cart"></i>
-                    </a>
                     <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
                 </div>
                 <div class="product-image">
@@ -172,12 +173,13 @@
                     <h3>Moringa Gelato</h3>
                     <p>Moringa-based ice cream rich in antioxidants, combined with stevia. Suitable for diabetics.</p>
                     <div class="product-stars">
-                        <i data-feather="star-full" class="star-full"></i>
                         <i data-feather="star" class="star-full"></i>
                         <i data-feather="star" class="star-full"></i>
                         <i data-feather="star" class="star-full"></i>
                         <i data-feather="star" class="star-full"></i>
+                        <i data-feather="star" ></i>
                     </div>
+                    <div class="product-price">IDR 85K</span></div>
                     <a href="#" class="add-to-cart" data-name="Moringa Gelato" data-price="25000" data-img="img/tentang-kami.jpg">
                         <i data-feather="shopping-cart"></i> <span>Add to Cart</span>
                     </a>
@@ -187,9 +189,9 @@
     </div>
 
     <div class="modal" id="receipt-modal">
-        <div class="modal-container" style="max-width: 400px; background: white; color: black;">
-            <a href="#" class="close-icon close-receipt"><i data-feather="x-circle" style="color:black;"></i></a>
-            <div class="receipt-content" id="receipt-print-area" style="padding: 1rem;">
+        <div class="modal-container receipt-container">
+            <a href="#" class="close-icon close-receipt"><i data-feather="x-circle"></i></a>
+            <div class="receipt-content" id="receipt-print-area">
                 </div>
             <button id="print-btn" class="btn" style="width:100%; margin-top:1rem;">Print Receipt</button>
         </div>
